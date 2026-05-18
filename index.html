@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pepper Wings | Molho Mel e Pimenta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#0f0f0f;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    header{
+      min-height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
+      url('https://images.unsplash.com/photo-1608039755401-742074f0548d?q=80&w=1400&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero{
+      max-width:700px;
+    }
+
+    .logo{
+      color:#ffb703;
+      font-size:1.1rem;
+      font-weight:700;
+      margin-bottom:25px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    h1{
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .highlight{
+      color:#ff4d00;
+    }
+
+    .subtitle{
+      font-size:1.2rem;
+      color:#d7d7d7;
+      margin-bottom:35px;
+      line-height:1.8;
+    }
+
+    .btn{
+      display:inline-block;
+      background:linear-gradient(135deg,#ff4d00,#ffb703);
+      color:#fff;
+      padding:18px 35px;
+      border-radius:60px;
+      font-weight:700;
+      transition:.3s;
+      box-shadow:0 10px 30px rgba(255,77,0,.35);
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.6rem;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .section-sub{
+      text-align:center;
+      color:#bdbdbd;
+      max-width:700px;
+      margin:0 auto 60px;
+      line-height:1.8;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#1b1b1b;
+      padding:35px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.05);
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#ff4d00;
+    }
+
+    .card h3{
+      margin:18px 0;
+      color:#ffb703;
+    }
+
+    .emoji{
+      font-size:2.2rem;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      border-radius:20px;
+    }
+
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .testimonial{
+      background:#191919;
+      padding:30px;
+      border-radius:20px;
+      position:relative;
+    }
+
+    .testimonial p{
+      color:#ddd;
+      line-height:1.7;
+    }
+
+    .quote{
+      font-size:4rem;
+      color:#ff4d00;
+      opacity:.2;
+      position:absolute;
+      top:10px;
+      right:20px;
+    }
+
+    .product{
+      background:linear-gradient(135deg,#1b1b1b,#111);
+      border-radius:30px;
+      padding:60px;
+      text-align:center;
+    }
+
+    .product h2{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .product p{
+      color:#ccc;
+      line-height:1.8;
+      max-width:700px;
+      margin:auto auto 35px;
+    }
+
+    .faq{
+      max-width:850px;
+      margin:auto;
+    }
+
+    .faq-item{
+      background:#171717;
+      margin-bottom:20px;
+      border-radius:16px;
+      padding:25px;
+    }
+
+    .faq-item h3{
+      color:#ffb703;
+      margin-bottom:10px;
+    }
+
+    footer{
+      padding:50px 20px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:#8d8d8d;
+    }
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:2.8rem;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+
+      .product{
+        padding:40px 25px;
+      }
+
+      .product h2{
+        font-size:2.2rem;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="hero">
+
+        <div class="logo">
+          PEPPER WINGS
+        </div>
+
+        <h1>
+          O molho de <span class="highlight">mel e pimenta</span> que virou vício em Assis.
+        </h1>
+
+        <p class="subtitle">
+          Quem prova o famoso molho da Hippo Pizza nunca esquece.
+          Agora você pode pedir o seu Pepper Wings direto pelo WhatsApp.
+        </p>
+
+        <a class="btn" href="https://wa.me/5511999999999" target="_blank">
+          PEDIR AGORA NO WHATSAPP
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">
+        Doce. Picante. Inesquecível.
+      </h2>
+
+      <p class="section-sub">
+        O equilíbrio perfeito entre o sabor do mel e a intensidade da pimenta.
+        Um molho criado para quem gosta de sabor marcante.
+      </p>
+
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1200&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=1200&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">
+        Por que todo mundo ama?
+      </h2>
+
+      <div class="features">
+
+        <div class="card">
+          <div class="emoji">🔥</div>
+          <h3>Receita Exclusiva</h3>
+          <p>Um sabor único criado pela Hippo Pizza.</p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">🍯</div>
+          <h3>Equilíbrio Perfeito</h3>
+          <p>Doce na medida certa com o toque ideal de pimenta.</p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">🍗</div>
+          <h3>Combina com Tudo</h3>
+          <p>Frango, pizza, hambúrguer, batata e petiscos.</p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">📍</div>
+          <h3>Famoso em Assis</h3>
+          <p>Quem experimenta sempre volta pra pedir mais.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">
+        O que estão dizendo
+      </h2>
+
+      <div class="testimonials">
+
+        <div class="testimonial">
+          <div class="quote">“</div>
+          <p>
+            Toda vez que vou pra Assis eu preciso trazer esse molho.
+          </p>
+        </div>
+
+        <div class="testimonial">
+          <div class="quote">“</div>
+          <p>
+            Melhor combinação de mel e pimenta que já provei.
+          </p>
+        </div>
+
+        <div class="testimonial">
+          <div class="quote">“</div>
+          <p>
+            Simplesmente viciante. Vai bem com tudo.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <div class="product">
+
+        <h2>Pepper Wings</h2>
+
+        <p>
+          Molho artesanal agridoce com toque picante criado para transformar qualquer refeição em uma experiência absurda de sabor.
+        </p>
+
+        <a class="btn" href="https://wa.me/5511999999999" target="_blank">
+          QUERO PEDIR AGORA
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">
+        Perguntas Frequentes
+      </h2>
+
+      <div class="faq">
+
+        <div class="faq-item">
+          <h3>É muito apimentado?</h3>
+          <p>
+            Não. Ele possui equilíbrio perfeito entre o doce do mel e a leve ardência da pimenta.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Combina com o quê?</h3>
+          <p>
+            Frango, pizza, hambúrguer, batata frita, carnes e petiscos.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Como faço meu pedido?</h3>
+          <p>
+            Basta clicar no botão do WhatsApp e falar diretamente com a equipe.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Pepper Wings • Molho Mel e Pimenta
+  </footer>
+
+</body>
+</html>
