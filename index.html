@@ -1,426 +1,723 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pepper Wings | Molho Mel e Pimenta</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Pepper Wings | Molho Mel e Pimenta</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    body{
-      font-family:'Poppins', sans-serif;
-      background:#0f0f0f;
-      color:#fff;
-      overflow-x:hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    a{
-      text-decoration:none;
-    }
+<style>
 
-    .container{
-      width:90%;
-      max-width:1200px;
-      margin:auto;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    header{
-      min-height:100vh;
-      background:
-      linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
-      url('https://images.unsplash.com/photo-1608039755401-742074f0548d?q=80&w=1400&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .hero{
-      max-width:700px;
-    }
+body{
+  font-family:'Poppins', sans-serif;
+  background:#0c0c0c;
+  color:#fff;
+  overflow-x:hidden;
+}
 
-    .logo{
-      color:#ffb703;
-      font-size:1.1rem;
-      font-weight:700;
-      margin-bottom:25px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-    }
+/* SCROLL */
 
-    h1{
-      font-size:4rem;
-      line-height:1.1;
-      margin-bottom:20px;
-      font-weight:800;
-    }
+::-webkit-scrollbar{
+  width:10px;
+}
 
-    .highlight{
-      color:#ff4d00;
-    }
+::-webkit-scrollbar-thumb{
+  background:#ff5e00;
+  border-radius:20px;
+}
 
-    .subtitle{
-      font-size:1.2rem;
-      color:#d7d7d7;
-      margin-bottom:35px;
-      line-height:1.8;
-    }
+/* HERO */
 
-    .btn{
-      display:inline-block;
-      background:linear-gradient(135deg,#ff4d00,#ffb703);
-      color:#fff;
-      padding:18px 35px;
-      border-radius:60px;
-      font-weight:700;
-      transition:.3s;
-      box-shadow:0 10px 30px rgba(255,77,0,.35);
-    }
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
 
-    .btn:hover{
-      transform:translateY(-3px);
-    }
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.82)),
+  url('https://images.unsplash.com/photo-1608039755401-742074f0548d?q=80&w=1600&auto=format&fit=crop');
 
-    section{
-      padding:90px 0;
-    }
+  background-size:cover;
+  background-position:center;
+  z-index:-3;
 
-    .section-title{
-      text-align:center;
-      font-size:2.6rem;
-      margin-bottom:20px;
-      font-weight:800;
-    }
+  animation:zoomHero 12s ease-in-out infinite alternate;
+}
 
-    .section-sub{
-      text-align:center;
-      color:#bdbdbd;
-      max-width:700px;
-      margin:0 auto 60px;
-      line-height:1.8;
-    }
+@keyframes zoomHero{
+  from{
+    transform:scale(1);
+  }
 
-    .features{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:25px;
-    }
+  to{
+    transform:scale(1.08);
+  }
+}
 
-    .card{
-      background:#1b1b1b;
-      padding:35px;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,.05);
-      transition:.3s;
-    }
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.15);
+  z-index:-2;
+}
 
-    .card:hover{
-      transform:translateY(-8px);
-      border-color:#ff4d00;
-    }
+.fire-glow{
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:#ff4d00;
+  border-radius:50%;
+  filter:blur(180px);
+  opacity:.15;
+  top:-250px;
+  right:-150px;
+  animation:pulse 5s infinite ease-in-out;
+}
 
-    .card h3{
-      margin:18px 0;
-      color:#ffb703;
-    }
+@keyframes pulse{
+  0%{
+    transform:scale(1);
+  }
 
-    .emoji{
-      font-size:2.2rem;
-    }
+  50%{
+    transform:scale(1.1);
+  }
 
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
+  100%{
+    transform:scale(1);
+  }
+}
 
-    .gallery img{
-      width:100%;
-      height:300px;
-      object-fit:cover;
-      border-radius:20px;
-    }
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
 
-    .testimonials{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-    }
+.hero-content{
+  max-width:720px;
+  animation:fadeUp 1.3s ease;
+}
 
-    .testimonial{
-      background:#191919;
-      padding:30px;
-      border-radius:20px;
-      position:relative;
-    }
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(50px);
+  }
 
-    .testimonial p{
-      color:#ddd;
-      line-height:1.7;
-    }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-    .quote{
-      font-size:4rem;
-      color:#ff4d00;
-      opacity:.2;
-      position:absolute;
-      top:10px;
-      right:20px;
-    }
+.logo{
+  color:#ffb703;
+  letter-spacing:5px;
+  font-weight:700;
+  margin-bottom:20px;
+}
 
-    .product{
-      background:linear-gradient(135deg,#1b1b1b,#111);
-      border-radius:30px;
-      padding:60px;
-      text-align:center;
-    }
+h1{
+  font-size:4.5rem;
+  line-height:1.05;
+  font-weight:800;
+  margin-bottom:25px;
+}
 
-    .product h2{
-      font-size:3rem;
-      margin-bottom:20px;
-    }
+.highlight{
+  color:#ff5e00;
+}
 
-    .product p{
-      color:#ccc;
-      line-height:1.8;
-      max-width:700px;
-      margin:auto auto 35px;
-    }
+.subtitle{
+  color:#ddd;
+  font-size:1.2rem;
+  line-height:1.8;
+  margin-bottom:40px;
+}
 
-    .faq{
-      max-width:850px;
-      margin:auto;
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:linear-gradient(135deg,#ff4d00,#ffb703);
+  color:#fff;
+  padding:18px 34px;
+  border-radius:100px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.4s;
+  box-shadow:0 15px 40px rgba(255,94,0,.35);
+}
 
-    .faq-item{
-      background:#171717;
-      margin-bottom:20px;
-      border-radius:16px;
-      padding:25px;
-    }
+.btn:hover{
+  transform:translateY(-5px) scale(1.04);
+}
 
-    .faq-item h3{
-      color:#ffb703;
-      margin-bottom:10px;
-    }
+.floating{
+  position:absolute;
+  right:7%;
+  bottom:10%;
+  font-size:6rem;
+  animation:float 4s ease-in-out infinite;
+}
 
-    footer{
-      padding:50px 20px;
-      text-align:center;
-      border-top:1px solid rgba(255,255,255,.06);
-      color:#8d8d8d;
-    }
+@keyframes float{
+  0%{
+    transform:translateY(0);
+  }
 
-    @media(max-width:768px){
+  50%{
+    transform:translateY(-18px);
+  }
 
-      h1{
-        font-size:2.8rem;
-      }
+  100%{
+    transform:translateY(0);
+  }
+}
 
-      .section-title{
-        font-size:2rem;
-      }
+/* SECTIONS */
 
-      .product{
-        padding:40px 25px;
-      }
+section{
+  padding:100px 0;
+}
 
-      .product h2{
-        font-size:2.2rem;
-      }
+.section-title{
+  text-align:center;
+  font-size:3rem;
+  margin-bottom:20px;
+  font-weight:800;
+}
 
-    }
+.section-sub{
+  text-align:center;
+  color:#bdbdbd;
+  max-width:700px;
+  margin:0 auto 60px;
+  line-height:1.8;
+}
 
-  </style>
+/* GALLERY */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.gallery img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border-radius:25px;
+  transition:.5s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* CARDS */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:25px;
+  padding:35px;
+  transition:.4s;
+  backdrop-filter:blur(10px);
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:#ff5e00;
+  box-shadow:0 15px 40px rgba(255,94,0,.15);
+}
+
+.emoji{
+  font-size:2.5rem;
+  margin-bottom:15px;
+}
+
+.card h3{
+  color:#ffb703;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:#d3d3d3;
+  line-height:1.7;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.testimonial{
+  background:#151515;
+  border-radius:25px;
+  padding:35px;
+  position:relative;
+}
+
+.quote{
+  position:absolute;
+  top:10px;
+  right:20px;
+  font-size:5rem;
+  color:#ff5e00;
+  opacity:.08;
+}
+
+.testimonial p{
+  line-height:1.8;
+  color:#ddd;
+}
+
+/* CTA */
+
+.cta{
+  background:linear-gradient(135deg,#181818,#101010);
+  border-radius:35px;
+  padding:80px 50px;
+  text-align:center;
+  overflow:hidden;
+  position:relative;
+}
+
+.cta::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:#ff5e00;
+  filter:blur(160px);
+  opacity:.12;
+  top:-200px;
+  right:-150px;
+}
+
+.cta h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.cta p{
+  max-width:700px;
+  margin:auto auto 35px;
+  color:#ccc;
+  line-height:1.8;
+}
+
+/* FAQ */
+
+.faq{
+  max-width:850px;
+  margin:auto;
+}
+
+.faq-item{
+  background:#151515;
+  padding:25px;
+  border-radius:18px;
+  margin-bottom:20px;
+  transition:.3s;
+}
+
+.faq-item:hover{
+  border-left:5px solid #ff5e00;
+}
+
+.faq-item h3{
+  color:#ffb703;
+  margin-bottom:10px;
+}
+
+.faq-item p{
+  color:#d3d3d3;
+  line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:50px 20px;
+  color:#8a8a8a;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  background:#25d366;
+  right:20px;
+  bottom:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#fff;
+  font-size:2rem;
+  z-index:999;
+  box-shadow:0 10px 30px rgba(37,211,102,.4);
+
+  animation:whats 2s infinite;
+}
+
+@keyframes whats{
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.08);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+/* SCROLL REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  h1{
+    font-size:2.9rem;
+  }
+
+  .section-title{
+    font-size:2.2rem;
+  }
+
+  .cta{
+    padding:60px 25px;
+  }
+
+  .cta h2{
+    font-size:2.2rem;
+  }
+
+  .floating{
+    display:none;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="container">
-      <div class="hero">
+<!-- HERO -->
 
-        <div class="logo">
-          PEPPER WINGS
-        </div>
+<header class="hero">
 
-        <h1>
-          O molho de <span class="highlight">mel e pimenta</span> que virou vício em Assis.
-        </h1>
+  <div class="hero-bg"></div>
+  <div class="overlay"></div>
+  <div class="fire-glow"></div>
 
-        <p class="subtitle">
-          Quem prova o famoso molho da Hippo Pizza nunca esquece.
-          Agora você pode pedir o seu Pepper Wings direto pelo WhatsApp.
-        </p>
+  <div class="container">
 
-        <a class="btn" href="https://wa.me/5511999999999" target="_blank">
-          PEDIR AGORA NO WHATSAPP
-        </a>
+    <div class="hero-content">
 
+      <div class="logo">
+        PEPPER WINGS
       </div>
-    </div>
-  </header>
 
-  <section>
-    <div class="container">
+      <h1>
+        O molho de <span class="highlight">mel e pimenta</span> que virou vício em Assis.
+      </h1>
 
-      <h2 class="section-title">
-        Doce. Picante. Inesquecível.
-      </h2>
-
-      <p class="section-sub">
-        O equilíbrio perfeito entre o sabor do mel e a intensidade da pimenta.
-        Um molho criado para quem gosta de sabor marcante.
+      <p class="subtitle">
+        Quem prova o famoso molho da Hippo Pizza nunca esquece.
+        Agora você pode pedir o Pepper Wings direto pelo WhatsApp.
       </p>
 
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1200&auto=format&fit=crop" alt="">
-        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=1200&auto=format&fit=crop" alt="">
-        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop" alt="">
-      </div>
+      <a href="https://wa.me/5511999999999" class="btn">
+        🔥 PEDIR AGORA
+      </a>
 
     </div>
-  </section>
 
-  <section>
-    <div class="container">
+  </div>
 
-      <h2 class="section-title">
-        Por que todo mundo ama?
-      </h2>
+  <div class="floating">
+    🌶️
+  </div>
 
-      <div class="features">
+</header>
 
-        <div class="card">
-          <div class="emoji">🔥</div>
-          <h3>Receita Exclusiva</h3>
-          <p>Um sabor único criado pela Hippo Pizza.</p>
-        </div>
+<!-- GALLERY -->
 
-        <div class="card">
-          <div class="emoji">🍯</div>
-          <h3>Equilíbrio Perfeito</h3>
-          <p>Doce na medida certa com o toque ideal de pimenta.</p>
-        </div>
+<section class="reveal">
 
-        <div class="card">
-          <div class="emoji">🍗</div>
-          <h3>Combina com Tudo</h3>
-          <p>Frango, pizza, hambúrguer, batata e petiscos.</p>
-        </div>
+  <div class="container">
 
-        <div class="card">
-          <div class="emoji">📍</div>
-          <h3>Famoso em Assis</h3>
-          <p>Quem experimenta sempre volta pra pedir mais.</p>
-        </div>
+    <h2 class="section-title">
+      Doce. Picante. Inesquecível.
+    </h2>
 
-      </div>
+    <p class="section-sub">
+      O equilíbrio perfeito entre o sabor do mel e a intensidade da pimenta.
+    </p>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?q=80&w=1200&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1200&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop">
 
     </div>
-  </section>
 
-  <section>
-    <div class="container">
+  </div>
 
-      <h2 class="section-title">
-        O que estão dizendo
-      </h2>
+</section>
 
-      <div class="testimonials">
+<!-- BENEFITS -->
 
-        <div class="testimonial">
-          <div class="quote">“</div>
-          <p>
-            Toda vez que vou pra Assis eu preciso trazer esse molho.
-          </p>
-        </div>
+<section class="reveal">
 
-        <div class="testimonial">
-          <div class="quote">“</div>
-          <p>
-            Melhor combinação de mel e pimenta que já provei.
-          </p>
-        </div>
+  <div class="container">
 
-        <div class="testimonial">
-          <div class="quote">“</div>
-          <p>
-            Simplesmente viciante. Vai bem com tudo.
-          </p>
-        </div>
+    <h2 class="section-title">
+      Por que todo mundo ama?
+    </h2>
 
-      </div>
+    <div class="grid">
 
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-
-      <div class="product">
-
-        <h2>Pepper Wings</h2>
-
+      <div class="card">
+        <div class="emoji">🔥</div>
+        <h3>Receita Exclusiva</h3>
         <p>
-          Molho artesanal agridoce com toque picante criado para transformar qualquer refeição em uma experiência absurda de sabor.
+          Um sabor único criado para marcar quem experimenta.
         </p>
+      </div>
 
-        <a class="btn" href="https://wa.me/5511999999999" target="_blank">
-          QUERO PEDIR AGORA
-        </a>
+      <div class="card">
+        <div class="emoji">🍯</div>
+        <h3>Equilíbrio Perfeito</h3>
+        <p>
+          O doce do mel com o toque ideal de pimenta.
+        </p>
+      </div>
 
+      <div class="card">
+        <div class="emoji">🍗</div>
+        <h3>Combina com Tudo</h3>
+        <p>
+          Frango, pizza, hambúrguer, batata e petiscos.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">📍</div>
+        <h3>Famoso em Assis</h3>
+        <p>
+          Quem conhece o Pepper Wings sempre volta pra pedir mais.
+        </p>
       </div>
 
     </div>
-  </section>
 
-  <section>
-    <div class="container">
+  </div>
 
-      <h2 class="section-title">
-        Perguntas Frequentes
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="reveal">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      O que estão dizendo
+    </h2>
+
+    <div class="testimonials">
+
+      <div class="testimonial">
+        <div class="quote">“</div>
+        <p>
+          Toda vez que vou pra Assis eu preciso levar esse molho.
+        </p>
+      </div>
+
+      <div class="testimonial">
+        <div class="quote">“</div>
+        <p>
+          Melhor molho de mel e pimenta que já provei.
+        </p>
+      </div>
+
+      <div class="testimonial">
+        <div class="quote">“</div>
+        <p>
+          Simplesmente viciante. Vai bem com tudo.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="reveal">
+
+  <div class="container">
+
+    <div class="cta">
+
+      <h2>
+        Pepper Wings
       </h2>
 
-      <div class="faq">
+      <p>
+        Um molho artesanal criado para transformar qualquer refeição em uma explosão absurda de sabor.
+      </p>
 
-        <div class="faq-item">
-          <h3>É muito apimentado?</h3>
-          <p>
-            Não. Ele possui equilíbrio perfeito entre o doce do mel e a leve ardência da pimenta.
-          </p>
-        </div>
+      <a href="https://wa.me/5511999999999" class="btn">
+        🌶️ QUERO PEDIR AGORA
+      </a>
 
-        <div class="faq-item">
-          <h3>Combina com o quê?</h3>
-          <p>
-            Frango, pizza, hambúrguer, batata frita, carnes e petiscos.
-          </p>
-        </div>
+    </div>
 
-        <div class="faq-item">
-          <h3>Como faço meu pedido?</h3>
-          <p>
-            Basta clicar no botão do WhatsApp e falar diretamente com a equipe.
-          </p>
-        </div>
+  </div>
 
+</section>
+
+<!-- FAQ -->
+
+<section class="reveal">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Perguntas Frequentes
+    </h2>
+
+    <div class="faq">
+
+      <div class="faq-item">
+        <h3>É muito apimentado?</h3>
+        <p>
+          Não. O Pepper Wings tem equilíbrio perfeito entre o doce do mel e a ardência da pimenta.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Combina com o quê?</h3>
+        <p>
+          Frango, pizza, hambúrguer, batata frita, carnes e petiscos.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Como faço meu pedido?</h3>
+        <p>
+          Basta clicar no botão do WhatsApp e falar diretamente com a equipe.
+        </p>
       </div>
 
     </div>
-  </section>
 
-  <footer>
-    © 2026 Pepper Wings • Molho Mel e Pimenta
-  </footer>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 Pepper Wings • Molho Mel e Pimenta
+</footer>
+
+<!-- BOTÃO FLUTUANTE -->
+
+<a
+href="https://wa.me/5511999999999"
+class="whatsapp"
+target="_blank">
+💬
+</a>
+
+<!-- ANIMAÇÕES -->
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+
+  reveals.forEach(reveal => {
+
+    const windowHeight = window.innerHeight;
+    const revealTop = reveal.getBoundingClientRect().top;
+    const revealPoint = 120;
+
+    if(revealTop < windowHeight - revealPoint){
+      reveal.classList.add('active');
+    }
+
+  });
+
+});
+
+</script>
 
 </body>
 </html>
