@@ -249,17 +249,18 @@ section{
 
 .card{
   background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.05);
+  border:1px solid rgba(255,94,0,.25);
   border-radius:25px;
   padding:35px;
   transition:.4s;
   backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(255,94,0,.08);
 }
 
 .card:hover{
   transform:translateY(-10px);
   border-color:#ff5e00;
-  box-shadow:0 15px 40px rgba(255,94,0,.15);
+  box-shadow:0 15px 40px rgba(255,94,0,.18);
 }
 
 .emoji{
@@ -290,6 +291,8 @@ section{
   border-radius:25px;
   padding:35px;
   position:relative;
+  border:1px solid rgba(255,94,0,.25);
+  box-shadow:0 10px 30px rgba(255,94,0,.08);
 }
 
 .quote{
@@ -298,7 +301,7 @@ section{
   right:20px;
   font-size:5rem;
   color:#ff5e00;
-  opacity:.08;
+  opacity:.22;
 }
 
 .testimonial p{
@@ -354,6 +357,8 @@ section{
   border-radius:18px;
   margin-bottom:20px;
   transition:.3s;
+  border:1px solid rgba(255,94,0,.25);
+  box-shadow:0 10px 30px rgba(255,94,0,.08);
 }
 
 .faq-item:hover{
@@ -459,8 +464,6 @@ footer{
 
 <body>
 
-<!-- HERO -->
-
 <header class="hero">
 
   <div class="hero-bg"></div>
@@ -476,12 +479,12 @@ footer{
       </div>
 
       <h1>
-        O molho de <span class="highlight">mel e pimenta</span> que virou vício em Assis.
+        O molho de <span class="highlight">mel e pimenta</span> que conquistou a região.
       </h1>
 
       <p class="subtitle">
-        Quem prova o famoso molho da Hippo Pizza nunca esquece.
-        Agora você pode pedir o Pepper Wings direto pelo WhatsApp.
+        Quem prova o famoso molho da Hippo nunca esquece.
+        Peça agora pelo WhatsApp e descubra porque todo mundo fala dele!!
       </p>
 
       <a href="https://wa.me/5511999999999" class="btn">
@@ -497,8 +500,6 @@ footer{
   </div>
 
 </header>
-
-<!-- GALLERY -->
 
 <section class="reveal">
 
@@ -526,8 +527,6 @@ footer{
 
 </section>
 
-<!-- BENEFITS -->
-
 <section class="reveal">
 
   <div class="container">
@@ -542,7 +541,7 @@ footer{
         <div class="emoji">🔥</div>
         <h3>Receita Exclusiva</h3>
         <p>
-          Um sabor único criado para marcar quem experimenta.
+          Um sabor único que conquista na primeira mordida.
         </p>
       </div>
 
@@ -576,14 +575,12 @@ footer{
 
 </section>
 
-<!-- TESTIMONIALS -->
-
 <section class="reveal">
 
   <div class="container">
 
     <h2 class="section-title">
-      O que estão dizendo
+      O que a galera diz
     </h2>
 
     <div class="testimonials">
@@ -591,7 +588,7 @@ footer{
       <div class="testimonial">
         <div class="quote">“</div>
         <p>
-          Toda vez que vou pra Assis eu preciso levar esse molho.
+          Toda vez que passo por Assis, preciso levar um molho desse.
         </p>
       </div>
 
@@ -601,11 +598,18 @@ footer{
           Melhor molho de mel e pimenta que já provei.
         </p>
       </div>
+	  
+	  <div class="testimonial">
+        <div class="quote">“</div>
+        <p>
+          O molho mais comentado da região.
+        </p>
+      </div>
 
       <div class="testimonial">
         <div class="quote">“</div>
         <p>
-          Simplesmente viciante. Vai bem com tudo.
+          Simplesmente viciante, combina com tudo.
         </p>
       </div>
 
@@ -614,8 +618,6 @@ footer{
   </div>
 
 </section>
-
-<!-- CTA -->
 
 <section class="reveal">
 
@@ -641,8 +643,6 @@ footer{
 
 </section>
 
-<!-- FAQ -->
-
 <section class="reveal">
 
   <div class="container">
@@ -663,7 +663,7 @@ footer{
       <div class="faq-item">
         <h3>Combina com o quê?</h3>
         <p>
-          Frango, pizza, hambúrguer, batata frita, carnes e petiscos.
+          Frango, pizza, hambúrguer, batatas  e petiscos.
         </p>
       </div>
 
@@ -680,22 +680,17 @@ footer{
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
   © 2026 Pepper Wings • Molho Mel e Pimenta
 </footer>
 
-<!-- BOTÃO FLUTUANTE -->
-
 <a
 href="https://wa.me/5511999999999"
 class="whatsapp"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
 💬
 </a>
-
-<!-- ANIMAÇÕES -->
 
 <script>
 
