@@ -169,7 +169,10 @@ h1{
   text-decoration:none;
   font-weight:700;
   transition:.4s;
-  box-shadow:0 15px 40px rgba(255,94,0,.35);
+
+  box-shadow:
+  0 15px 40px rgba(255,94,0,.35),
+  0 0 25px rgba(255,94,0,.20);
 }
 
 .btn:hover{
@@ -249,18 +252,27 @@ section{
 
 .card{
   background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,94,0,.25);
+
+  border:3px solid rgba(255,94,0,.55);
+
   border-radius:25px;
   padding:35px;
+
   transition:.4s;
   backdrop-filter:blur(10px);
-  box-shadow:0 10px 30px rgba(255,94,0,.08);
+
+  box-shadow:
+  0 10px 30px rgba(255,94,0,.12);
 }
 
 .card:hover{
   transform:translateY(-10px);
-  border-color:#ff5e00;
-  box-shadow:0 15px 40px rgba(255,94,0,.18);
+
+  border-color:#ff7b00;
+
+  box-shadow:
+  0 20px 45px rgba(255,94,0,.22),
+  0 0 20px rgba(255,94,0,.10);
 }
 
 .emoji{
@@ -288,20 +300,27 @@ section{
 
 .testimonial{
   background:#151515;
+
+  border:3px solid rgba(255,94,0,.55);
+
   border-radius:25px;
   padding:35px;
+
   position:relative;
-  border:1px solid rgba(255,94,0,.25);
-  box-shadow:0 10px 30px rgba(255,94,0,.08);
+
+  box-shadow:
+  0 10px 30px rgba(255,94,0,.12);
 }
 
 .quote{
   position:absolute;
   top:10px;
   right:20px;
+
   font-size:5rem;
   color:#ff5e00;
-  opacity:.22;
+
+  opacity:.38;
 }
 
 .testimonial p{
@@ -312,36 +331,37 @@ section{
 /* CTA */
 
 .cta{
-  background:linear-gradient(135deg,#181818,#101010);
-  border-radius:35px;
-  padding:80px 50px;
-  text-align:center;
-  overflow:hidden;
-  position:relative;
-}
+  background:
+  radial-gradient(circle at top right, rgba(255,94,0,.12), transparent 60%),
+  linear-gradient(135deg,#1a1a1a,#0f0f0f);
 
-.cta::before{
-  content:'';
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:#ff5e00;
-  filter:blur(160px);
-  opacity:.12;
-  top:-200px;
-  right:-150px;
+  border-radius:35px;
+  padding:90px 50px;
+
+  text-align:center;
+  position:relative;
+
+  border:3px solid rgba(255,94,0,.25);
+
+  box-shadow:
+  0 25px 80px rgba(0,0,0,.6),
+  0 0 40px rgba(255,94,0,.08);
+
+  overflow:hidden;
 }
 
 .cta h2{
-  font-size:3rem;
-  margin-bottom:20px;
+  font-size:4rem;
+  margin-bottom:25px;
 }
 
 .cta p{
   max-width:700px;
   margin:auto auto 35px;
+
   color:#ccc;
   line-height:1.8;
+  font-size:1.15rem;
 }
 
 /* FAQ */
@@ -353,16 +373,27 @@ section{
 
 .faq-item{
   background:#151515;
-  padding:25px;
+
+  border:3px solid rgba(255,94,0,.55);
+
   border-radius:18px;
+  padding:25px;
   margin-bottom:20px;
+
   transition:.3s;
-  border:1px solid rgba(255,94,0,.25);
-  box-shadow:0 10px 30px rgba(255,94,0,.08);
+
+  box-shadow:
+  0 10px 30px rgba(255,94,0,.12);
 }
 
 .faq-item:hover{
-  border-left:5px solid #ff5e00;
+  border-left:6px solid #ff7b00;
+
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 20px 40px rgba(255,94,0,.18),
+  0 0 20px rgba(255,94,0,.08);
 }
 
 .faq-item h3{
@@ -394,13 +425,17 @@ footer{
   background:#25d366;
   right:20px;
   bottom:20px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   text-decoration:none;
   color:#fff;
   font-size:2rem;
+
   z-index:999;
+
   box-shadow:0 10px 30px rgba(37,211,102,.4);
 
   animation:whats 2s infinite;
@@ -563,7 +598,7 @@ footer{
 
       <div class="card">
         <div class="emoji">📍</div>
-        <h3>Famoso em Assis</h3>
+        <h3>Famoso em Assis e <b>REGIÃO</b></h3>
         <p>
           Quem conhece o Pepper Wings sempre volta pra pedir mais.
         </p>
@@ -625,9 +660,7 @@ footer{
 
     <div class="cta">
 
-      <h2>
-        Pepper Wings
-      </h2>
+      <h2>Pepper Wings</h2>
 
       <p>
         Um molho artesanal criado para transformar qualquer refeição em uma explosão absurda de sabor.
